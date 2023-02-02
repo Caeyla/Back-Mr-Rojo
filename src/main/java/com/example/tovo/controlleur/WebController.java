@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.tovo.modele.*;
-import database.*;
+import com.example.tovo.database.*;
 import com.example.tovo.obj.*;
 @RestController
 //web service

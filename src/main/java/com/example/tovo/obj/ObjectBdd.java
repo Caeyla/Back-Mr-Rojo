@@ -2,8 +2,8 @@ package com.example.tovo.obj;
 import java.sql.*;
 import java.lang.reflect.*;
 import java.util.Date;
-import database.*;
-import annotation.*;
+import com.example.tovo.database.*;
+import com.example.tovo.annotation.*;
 public class ObjectBdd{
     public ObjectBdd(){
 

@@ -2,9 +2,9 @@ package com.example.tovo.modele;
 
 import com.example.tovo.obj.ObjectBdd;
 import java.sql.*;
-import database.*;
-import annotation.Attribut;
-import annotation.NomTable;
+import com.example.tovo.database.*;
+import com.example.tovo.annotation.Attribut;
+import com.example.tovo.annotation.NomTable;
 
 @NomTable(nom="Admin")
 public class Admin extends ObjectBdd{

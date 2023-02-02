@@ -1,5 +1,4 @@
-
-package database;
+package com.example.tovo.database;
 
 
 	import java.sql.Connection;
