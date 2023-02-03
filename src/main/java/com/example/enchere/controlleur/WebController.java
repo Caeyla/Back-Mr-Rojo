@@ -28,8 +28,8 @@ public class WebController {
     @GetMapping("connexion")
     public String conne(){
        
-            return "hello";
-        }
+            return "hello+";
+        
     }
     // @PostMapping("/inscription")
     // public Users inscription(Users ray){
