@@ -1,7 +1,10 @@
 package com.example.tovo.modele;
 
+import java.sql.Connection;
+
 import com.example.tovo.annotation.Attribut;
 import com.example.tovo.annotation.NomTable;
+import com.example.tovo.database.Connexion;
 import com.example.tovo.obj.ObjectBdd;
 
 @NomTable(nom="Admin")
@@ -48,7 +51,21 @@ public class Categorie extends ObjectBdd{
     public void setDescription(String description) {
         this.description = description;
     }
+    public void insert()throws Exception{
+        Connection conn=null;
+        try{
+            conn=Connexion.getConnection("jdbc:postgresql://postgresql-enchere.alwaysdata.net:5432/enchere_db","enchere_user","caeyla01");
 
+        }catch(Exception e){
+
+        }
+        this.insert(conn,"postgres");
+        try{
+            if(conn!=null) conn.close();
+        }catch(Exception e){
+
+        }
+    }
 
 
 }

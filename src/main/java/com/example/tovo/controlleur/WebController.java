@@ -38,16 +38,13 @@ public class WebController {
             return mp;
         
     }@PostMapping("/Categorie")
-    public HashMap<String,Object> categ(@RequestBody Admin ray){
+    public HashMap<String,Object> categ(@RequestBody Categorie ray){
         HashMap<String,Object>mp=new HashMap<>();
        
             try{
-                ray.setIdadmin(-2002);
-                if(ray.user()!=null){
-                    mp.put("data",ray.user());
-                }else{
-                    mp.put("error",new Exception("ts mety"));
-                }
+                ray.setIdcategorie(-2002);
+                ray.insert();
+                mp.put("data","success");
             }catch(Exception e){
                 mp.put("error",new Exception(e));
             }
