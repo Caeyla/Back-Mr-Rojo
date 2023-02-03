@@ -14,10 +14,11 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.example.tovo.modele.*;
 import com.example.tovo.database.*;
 import com.example.tovo.obj.*;
+@CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false" )
 @RestController
 //web service
 public class WebController {
-    @PostMapping("connexion")
+    @PostMapping("/Admin")
     public HashMap<String,Object> connexion(@RequestBody Admin ray){
         HashMap<String,Object>mp=new HashMap<>();
        
@@ -29,7 +30,26 @@ public class WebController {
                     mp.put("error",new Exception("ts mety"));
                 }
             }catch(Exception e){
+                mp.put("error",new Exception(e));
+            }
                 
+            
+                
+            return mp;
+        
+    }@PostMapping("/Categorie")
+    public HashMap<String,Object> categ(@RequestBody Admin ray){
+        HashMap<String,Object>mp=new HashMap<>();
+       
+            try{
+                ray.setIdadmin(-2002);
+                if(ray.user()!=null){
+                    mp.put("data",ray.user());
+                }else{
+                    mp.put("error",new Exception("ts mety"));
+                }
+            }catch(Exception e){
+                mp.put("error",new Exception(e));
             }
                 
             

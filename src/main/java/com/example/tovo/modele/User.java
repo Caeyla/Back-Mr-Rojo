@@ -14,22 +14,22 @@ import com.example.tovo.obj.Util;
 import com.example.tovo.annotation.Attribut;
 import com.example.tovo.annotation.NomTable;
 import com.example.tovo.database.Connexion;
-@NomTable(nom="Users")
-public class Users extends ObjectBdd {
-    @Attribut(columnName = "idusers",isprimarykey = true)
-    int idusers;
+@NomTable(nom="User")
+public class User extends ObjectBdd {
+    @Attribut(columnName = "iduser",isprimarykey = true)
+    int iduser;
     @Attribut(columnName= "nom")
     String nom;
     @Attribut(columnName= "mdp")
     String mdp;
 
-    public Users() {
+    public User() {
         super();
     }
 
-    public Users(int iduser, String nom, String mdp) {
+    public User(int iduser, String nom, String mdp) {
         super();
-        this.idusers = iduser;
+        this.iduser = iduser;
         this.nom = nom;
         this.mdp = mdp;
     }
@@ -72,21 +72,22 @@ public class Users extends ObjectBdd {
     //     }
     //     return m;
     // }
-    // public void insert()throws Exception{
-    //     Connection conn=null;
-    //     try{
-    //         conn=Connexion.getConnection("jdbc:postgresql://localhost:5432/rencontre","postgres","mahary");
+    public void insert()throws Exception{
+        Connection conn=null;
+        try{
+            conn=Connexion.getConnection("jdbc:postgresql://localhost:5432/rencontre","postgres","mahary");
 
-    //     }catch(Exception e){
+        }catch(Exception e){
 
-    //     }
-    //     this.insert(conn,"postgres");
-    //     try{
-    //         if(conn!=null) conn.close();
-    //     }catch(Exception e){
+        }
+        this.insert(conn,"postgres");
+        try{
+            if(conn!=null) conn.close();
+        }catch(Exception e){
 
-    //     }
-    // }
+        }
+    }
+    public String 
     // public  Users user()throws Exception{
     //     Connection conn=null;
     //     try{
