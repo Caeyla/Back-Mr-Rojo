@@ -19,25 +19,27 @@ public class User extends ObjectBdd {
     int iduser;
     @Attribut(columnName= "nom")
     String nom;
-    @Attribut(columnName= "mdp")
-    String mdp;
+    @Attribut(columnName= "prenom")
+    String prenom;
+    @Attribut(columnName= "mail")
+    String mail;
+    @Attribut(columnName= "motdepasse")
+    String motdepasse;
 
-    public User() {
-        super();
+
+    public String getMail() {
+        return this.mail;
     }
 
-    public User(int iduser, String nom, String mdp) {
-        super();
-        this.iduser = iduser;
-        this.nom = nom;
-        this.mdp = mdp;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
-    public int getIdusers() {
+    public int getIduser() {
         return this.iduser;
     }
 
-    public void setIdusers(int iduser) {
+    public void setIduser(int iduser) {
         this.iduser = iduser;
     }
 
@@ -49,32 +51,40 @@ public class User extends ObjectBdd {
         this.nom = nom;
     }
 
-    public String getMdp() {
-        return this.mdp;
+    public String getPrenom() {
+        return this.prenom;
     }
 
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
-    // public Moyenne M(){
-    //     Moyenne ray=new Moyenne(-2002,this,-2002);
-    //     Connection conn=null;
-    //     Moyenne m=null;
-    //     try{
-    //         conn=Connexion.getConnection("jdbc:postgresql://localhost:5432/rencontre","postgres","mahary");
-    //         Object[]list=ray.select(conn);
-    //         m=(Moyenne)list[0];
-			
-            
-    //     }catch(Exception e){
-    //         System.out.println(e.getMessage());
-    //     }
-    //     return m;
-    // }
+
+    public String getMotdepasse() {
+        return this.motdepasse;
+    }
+
+    public void setMotdepasse(String motdepasse) {
+        this.motdepasse = motdepasse;
+    }
+
+    public User() {
+        super();
+    }
+
+    public User(int iduser, String nom, String prenom,String mail, String motdepasse) {
+        super();
+        this.iduser = iduser;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail=mail;
+        this.motdepasse = motdepasse;
+    }
+
+
     public void insert()throws Exception{
         Connection conn=null;
         try{
-            conn=Connexion.getConnection("jdbc:postgresql://localhost:5432/rencontre","postgres","mahary");
+            conn=Connexion.getConnection("jdbc:postgresql://postgresql-enchere.alwaysdata.net:5432/enchere_db","enchere_user","caeyla01");
 
         }catch(Exception e){
 
@@ -84,6 +94,18 @@ public class User extends ObjectBdd {
             if(conn!=null) conn.close();
         }catch(Exception e){
 
+        }
+    }
+    public  User user()throws Exception{
+        Connection conn=null;
+        try{
+            conn=Connexion.getConnection("jdbc:postgresql://postgresql-enchere.alwaysdata.net:5432/enchere_db","enchere_user","caeyla01");
+			User ray=(User)(this.select(conn)[0]);
+            conn.close();
+            return ray;
+        }catch(Exception e){
+           
+            return null;
         }
     }
     

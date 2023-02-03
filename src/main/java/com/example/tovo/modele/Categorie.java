@@ -7,7 +7,7 @@ import com.example.tovo.annotation.NomTable;
 import com.example.tovo.database.Connexion;
 import com.example.tovo.obj.ObjectBdd;
 
-@NomTable(nom="Admin")
+@NomTable(nom="Categorie")
 public class Categorie extends ObjectBdd{
     @Attribut(columnName="idcategorie",isprimarykey=true)
     int idcategorie;

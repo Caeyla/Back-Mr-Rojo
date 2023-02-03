@@ -10,17 +10,28 @@ import java.time.*;
 import java.lang.*;
 
 public class Util {
-    // public static  ArrayList<Mot> castMot(Object[]ray){
-    //     ArrayList<Mot>ar=new ArrayList<Mot>();
-    //     if(ray.length>0){
-    //         for(int i=0;i<ray.length;i++){
-    //             if(ray[i] instanceof Mot){
-    //                 ar.add((Mot)ray[i]);
-    //             }
-    //         }
-    //     }
-    //     return ar;
-    // }
+    public static  ArrayList<Enchere> castEnchere(Object[]ray){
+        ArrayList<Enchere>ar=new ArrayList<Enchere>();
+        if(ray.length>0){
+            for(int i=0;i<ray.length;i++){
+                if(ray[i] instanceof Enchere){
+                    ar.add((Enchere)ray[i]);
+                }
+            }
+        }
+        return ar;
+    }
+    public static  ArrayList<Participation> castParticipation(Object[]ray){
+        ArrayList<Participation>ar=new ArrayList<Participation>();
+        if(ray.length>0){
+            for(int i=0;i<ray.length;i++){
+                if(ray[i] instanceof Participation){
+                    ar.add((Participation)ray[i]);
+                }
+            }
+        }
+        return ar;
+    }
     // public static  ArrayList<String> castString(Object[]ray){
     //     ArrayList<String>ar=new ArrayList<String>();
     //     if(ray.length>0){

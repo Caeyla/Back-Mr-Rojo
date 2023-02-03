@@ -37,7 +37,28 @@ public class WebController {
                 
             return mp;
         
-    }@PostMapping("/Categorie")
+    }
+    @PostMapping("/User")
+    public HashMap<String,Object> connexionUser(@RequestBody User ray){
+        HashMap<String,Object>mp=new HashMap<>();
+       
+            try{
+                ray.setIduser(-2002);
+                if(ray.user()!=null){
+                    mp.put("data",ray.user());
+                }else{
+                    mp.put("error",new Exception("ts mety"));
+                }
+            }catch(Exception e){
+                mp.put("error",new Exception(e));
+            }
+                
+            
+                
+            return mp;
+        
+    }
+    @PostMapping("/Categorie")
     public HashMap<String,Object> categ(@RequestBody Categorie ray){
         HashMap<String,Object>mp=new HashMap<>();
        
@@ -45,6 +66,97 @@ public class WebController {
                 ray.setIdcategorie(-2002);
                 ray.insert();
                 mp.put("data","success");
+            }catch(Exception e){
+                mp.put("error",new Exception(e));
+            }
+                
+            
+                
+            return mp;
+        
+    }
+    @PostMapping("/User")
+    public HashMap<String,Object> inscription(@RequestBody User ray){
+        HashMap<String,Object>mp=new HashMap<>();
+       
+            try{
+                ray.setIduser(-2002);
+                ray.insert();
+                mp.put("data","success");
+            }catch(Exception e){
+                mp.put("error",new Exception(e));
+            }
+                
+            
+                
+            return mp;
+        
+    }
+    @PostMapping("/Enchere")
+    public HashMap<String,Object> insertionEnchere(@RequestBody Enchere ray){
+        HashMap<String,Object>mp=new HashMap<>();
+       
+            try{
+                ray.setIduser(-2002);
+                ray.insert();
+                mp.put("data","success");
+            }catch(Exception e){
+                mp.put("error",new Exception(e));
+            }
+                
+            
+                
+            return mp;
+        
+    }
+    @GetMapping("/Enchere")
+    public HashMap<String,Object> lsiteEnchere(){
+        HashMap<String,Object>mp=new HashMap<>();
+       
+            try{
+                
+                mp.put("data",Enchere.EnchereNonfini());
+            }catch(Exception e){
+                mp.put("error",new Exception(e));
+            }
+                
+            
+                
+            return mp;
+        
+    }
+    @PostMapping("/Compte")
+    public HashMap<String,Object> rechargerCompte(@RequestBody Compte ray){
+        HashMap<String,Object>mp=new HashMap<>();
+       
+            try{
+                ray.setIdcompte(-2002);
+                double mont=ray.getMontant();
+                ray.setMontant(-2002);
+                if(ray.user()!=null){
+                    Compte vao2=ray.user();
+                    mont=mont+vao2.getMontant();
+                    vao2.setMontant(mont);
+                        vao2.update();
+
+                }
+                mp.put("data",Enchere.EnchereNonfini());
+            }catch(Exception e){
+                mp.put("error",new Exception(e));
+            }
+                
+            
+                
+            return mp;
+        
+    }
+    @GetMapping("/Participation/{id}")
+    public HashMap<String,Object> listeParticipation(@PathVariable int id){
+        HashMap<String,Object>mp=new HashMap<>();
+       
+            try{
+                
+                mp.put("data",Participation.getAll(id));
             }catch(Exception e){
                 mp.put("error",new Exception(e));
             }
