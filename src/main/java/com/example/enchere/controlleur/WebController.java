@@ -2,6 +2,7 @@ package com.example.enchere.controlleur;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -17,19 +18,20 @@ import com.example.enchere.obj.*;
 //web service
 public class WebController {
     @PostMapping("connexion")
-    public Admin connexion(@RequestBody Admin ray){
+    public HashMap<String,Object> connexion(@RequestBody Admin ray){
+        HashMap<String,Object>mp=new HashMap<>();
         try{
             ray.setIdadmin(-2002);
-            return ray.user();
+            mp.put("tay",ray)
+            return mp;
         }catch(Exception e){
+            mp.put("error",new Exception("error"))
             return new Admin(-2002, null, null);
         }
     }
     @GetMapping("connexion")
     public String conne(){
-       
             return "hello+";
-        
     }
     // @PostMapping("/inscription")
     // public Users inscription(Users ray){
