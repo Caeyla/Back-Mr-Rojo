@@ -2,6 +2,7 @@ package com.example.tovo.controlleur;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -17,13 +18,24 @@ import com.example.tovo.obj.*;
 //web service
 public class WebController {
     @PostMapping("connexion")
-    public Admin connexion(@RequestBody Admin ray){
-        try{
-            ray.setIdadmin(-2002);
-            return ray.user();
-        }catch(Exception e){
-            return new Admin(-2002, null, null);
-        }
+    public HashMap<String,Object> connexion(@RequestBody Admin ray){
+        HashMap<String,Object>mp=new HashMap<>();
+       
+            try{
+                ray.setIdadmin(-2002);
+                if(ray.user()!=null){
+                    mp.put("data",ray.user());
+                }else{
+                    mp.put("error",new Exception("ts mety"));
+                }
+            }catch(Exception e){
+                
+            }
+                
+            
+                
+            return mp;
+        
     }
     // @PostMapping("/inscription")
     // public Users inscription(Users ray){
