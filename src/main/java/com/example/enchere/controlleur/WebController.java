@@ -25,6 +25,12 @@ public class WebController {
             return new Admin(-2002, null, null);
         }
     }
+    @GetMapping("connexion")
+    public String conne(){
+       
+            return "hello";
+        }
+    }
     // @PostMapping("/inscription")
     // public Users inscription(Users ray){
     //     try{
