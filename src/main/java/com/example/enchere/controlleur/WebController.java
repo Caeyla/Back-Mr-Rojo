@@ -22,10 +22,10 @@ public class WebController {
         HashMap<String,Object>mp=new HashMap<>();
         try{
             ray.setIdadmin(-2002);
-            mp.put("tay",ray)
+            mp.put("tay",ray);
             return mp;
         }catch(Exception e){
-            mp.put("error",new Exception("error"))
+            mp.put("error",new Exception("error"));
             return new Admin(-2002, null, null);
         }
     }
