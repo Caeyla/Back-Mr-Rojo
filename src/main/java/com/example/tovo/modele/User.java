@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-import org.apache.catalina.User;
 
 import com.example.tovo.obj.ObjectBdd;
 import com.example.tovo.obj.Util;
@@ -35,11 +34,11 @@ public class User extends ObjectBdd {
     }
 
     public int getIdusers() {
-        return this.idusers;
+        return this.iduser;
     }
 
     public void setIdusers(int iduser) {
-        this.idusers = iduser;
+        this.iduser = iduser;
     }
 
     public String getNom() {
