@@ -87,7 +87,7 @@ public class User extends ObjectBdd {
 
         }
     }
-    public String 
+    
     // public  Users user()throws Exception{
     //     Connection conn=null;
     //     try{
