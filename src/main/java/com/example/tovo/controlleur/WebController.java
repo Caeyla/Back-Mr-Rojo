@@ -38,7 +38,7 @@ public class WebController {
             return mp;
         
     }
-    @PostMapping("/User")
+    @PostMapping("/Users")
     public HashMap<String,Object> connexionUser(@RequestBody User ray){
         HashMap<String,Object>mp=new HashMap<>();
        
@@ -270,3 +270,4 @@ public class WebController {
     // }
    
 }
+//https://drive.google.com/file/d/1RbVFaVewC56ip5RNePN5QNBN-2hByYtY/view?usp=share_link
