@@ -27,7 +27,7 @@ public class WebController {
     }
     // @PostMapping("/inscription")
     // public Users inscription(Users ray){
-    //     try{
+    //     try
     //         ray.insert();
     //     }catch(Exception e){
             
